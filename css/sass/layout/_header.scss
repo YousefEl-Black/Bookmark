@@ -1,0 +1,80 @@
+header {
+  height: 80px;
+  > .container {
+    height: 100%;
+    ul.links {
+      li {
+        a {
+          font-size: 15px;
+          text-decoration: none;
+          color: $veryDarkBlue;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          transition: $transition;
+          &:hover {
+            color: $softRed;
+          }
+        }
+        div {
+          @extend %main-btn;
+          text-transform: uppercase;
+          background-color: $softRed;
+          letter-spacing: 1px;
+          &:hover {
+            color: $softRed;
+            border-color: $softRed;
+          }
+        }
+      }
+    }
+    .shape {
+      cursor: pointer;
+    }
+  }
+}
+
+.megamenu {
+  display: none;
+  position: fixed;
+  background-color: hsla(231, 63%, 22%, 0.666);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  .content {
+    height: 100%;
+    width: 100%;
+    .top {
+      width: 100%;
+      .top-part {
+        width: 100%;
+      }
+      .bottom-part {
+        li {
+          width: 75%;
+          border-top: 1px solid white;
+          a {
+            text-decoration: none;
+            color: white;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+          }
+          div {
+            @extend %main-btn;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            &:hover {
+              color: black;
+            }
+          }
+        }
+      }
+    }
+    .social-media {
+      width: 75%;
+      color: white;
+    }
+  }
+}

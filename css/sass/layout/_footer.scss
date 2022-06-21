@@ -1,0 +1,28 @@
+footer {
+  background-color: $veryDarkBlue;
+  .container {
+    ul {
+      li {
+        a {
+          text-decoration: none;
+          color: white;
+          transition: $transition;
+          &:hover {
+            color: $softRed;
+          }
+        }
+      }
+    }
+    .social-media {
+      i {
+        font-size: 1.5em;
+        transition: $transition;
+        cursor: pointer;
+        color: white;
+        &:hover {
+          color: $softRed;
+        }
+      }
+    }
+  }
+}

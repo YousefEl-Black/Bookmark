@@ -1,0 +1,287 @@
+body {
+  font-family: $font;
+  font-size: 18px;
+}
+
+.landing {
+  overflow: hidden;
+  .text {
+    p {
+      color: $grayishBlue;
+    }
+    .btns {
+      .btn {
+        @extend %main-btn;
+        &:first-child {
+          color: white;
+          background-color: $softBlue;
+          border: 2px solid transparent;
+          transition: $transition;
+          &:hover {
+            background-color: white;
+            border-color: $softBlue;
+            color: $softBlue;
+          }
+        }
+        &:last-child {
+          color: $veryDarkBlue;
+          background-color: #eee;
+          border: 2px solid transparent;
+          transition: $transition;
+          &:hover {
+            background-color: white;
+            border-color: $veryDarkBlue;
+          }
+        }
+      }
+    }
+  }
+  .image {
+    position: relative;
+    &::before {
+      content: "";
+      background-color: $softBlue;
+      width: 100%;
+      height: 75%;
+      border-radius: 0 0 0 50%;
+      position: absolute;
+      top: 33%;
+      left: 33%;
+      z-index: -1;
+    }
+  }
+}
+
+.features {
+  .container {
+    width: 100%;
+    @include breakpoints(md) {
+      width: 50%;
+    }
+    p {
+      color: $grayishBlue;
+    }
+  }
+}
+
+.slider {
+  overflow: hidden;
+  .heads {
+    .head {
+      border-bottom: 1px solid $grayishBlue;
+      color: $grayishBlue;
+      transition: $transition;
+      cursor: pointer;
+      &:hover {
+        color: $softRed;
+      }
+      &.active{
+        color: black;
+        border-bottom: 4px solid $softRed;
+      }
+      span {
+        display: inline-block;
+        height: 100%;
+      }
+    }
+  }
+  .slides {
+    .slide {
+      &:nth-child(1) {
+        display: flex;
+      }
+      &:nth-child(2) {
+        display: none;
+      }
+      &:nth-child(3) {
+        display: none;
+      }
+      .image {
+        position: relative;
+        &::before {
+          content: "";
+          background-color: $softBlue;
+          width: 100%;
+          height: 75%;
+          border-radius: 0 0 50% 0;
+          position: absolute;
+          top: 40%;
+          right: 33%;
+          z-index: -1;    
+        }
+      }
+      .text {
+        div.btn {
+          @extend %main-btn;
+          background-color: $softBlue;
+          width: fit-content;
+          &:hover {
+            color: $softBlue;
+            border-color: $softBlue;
+          }
+        }
+      }
+    }
+  }
+}
+
+.extensions {
+  .container {
+    &:first-child {
+      @include breakpoints(md) {
+        width: 50%;
+      }
+      p {
+        color: $grayishBlue;
+      }
+    }
+    &:last-child {
+      min-height: 600px;
+      @include breakpoints(md) {
+        min-width: calc(280px * 3);
+      }
+      .extension {
+        width: 280px;
+        height: 400px;
+        @include prefixer(box-shadow, 0px 0px 10px 3px rgba(0, 0, 0, 0.2));
+        &:nth-child(1) {
+          @include breakpoints(md) {
+            transform: translateY(-25%);
+          }
+        }
+        &:nth-child(3) {
+          @include breakpoints(md) {
+            transform: translateY(25%);
+          }
+        }
+        .version {
+          color: $grayishBlue;
+          font-size: 14px;
+          font-weight: $fontS;
+        }
+        .btn {
+          @extend %main-btn;
+          background-color: $softBlue;
+          &:hover {
+            color: $softBlue;
+            border-color: $softBlue;
+          }
+        }
+      }
+    }
+  }
+}
+
+.questions {
+  .container {
+    &:first-child {
+      p {
+        color: $grayishBlue;
+      }
+    }
+    &:nth-child(2) {
+      .accordion {
+        .accordion-item {
+          .accordion-header {
+            .accordion-button {
+              &:not(.collapsed) {
+                background-color: transparent;
+                color: $softRed;
+                box-shadow: none;
+              }
+              &:focus {
+                color: $softRed;
+                background-color: transparent;
+                border-color: transparent;
+                outline: none;
+                box-shadow: none;
+              }
+              &::after {
+                background-image: url(../../../imgs/icon-arrow.svg);
+              }
+              &:not(.collapsed)::after {
+                background-image: url(../../../imgs/icon-arrow.svg); 
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  > .btn {
+    @extend %main-btn;
+    background-color: $softBlue;
+    left: 50%;
+    transform: translateX(-50%);
+    &:hover {
+      border-color: $softBlue;
+      color: $softBlue;
+    }
+  }
+}
+
+.contact {
+  background-color: $softBlue;
+  .container {
+    form {
+      width: 100%;
+      @include breakpoints(md) {
+        width: auto;
+      }
+      .mail {
+        min-width: 300px;
+        height: fit-content;
+        &::before {
+          content: "Whoops, make sure it's an email";
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-end;
+          padding: 2px 5px;
+          font-size: 10px;
+          color: white;
+          border-radius: 5px;
+          background-color: $softRed;
+          position: absolute;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          transition: $transition;
+        }
+        &.error-massage::before {
+          width: calc(100% + 4px);
+          height: calc(100% + 20px);
+          transform: translate(-50%, calc(-50% + 10px));
+        }
+        &.error-massage::after {
+          content: url(../../../imgs/icon-error.svg);
+          position: absolute;
+          right: 10px;
+          top: calc(50% + 3.9px);
+          transform: translateY(-50%);
+          z-index: 2;
+        }
+        [type="text"] {
+          position: relative;
+          z-index: 2;
+          text-indent: 5px;
+          font-size: 15px;
+          border: none;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      > .btn {
+        @extend %main-btn;
+        background-color: $softRed;
+        &:hover {
+          color: $softRed;
+          border-color: $softRed;
+        }
+      }
+    }
+  }
+}
